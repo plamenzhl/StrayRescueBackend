@@ -1,0 +1,53 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# SECURITY: Environment files with secrets
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# SECURITY: Local configuration files that might contain secrets
+application-local.properties
+application-secrets.properties
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# AWS credentials (just in case)
+.aws/
+aws-credentials.json
+
+# Database backups and dumps
+*.sql
+*.db
+*.sqlite

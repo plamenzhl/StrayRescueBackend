@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: stray-rescue-backend
+    
+  datasource:
+    url: jdbc:mariadb://localhost:3306/strayrescue
+    username: plamenzhl  # Hardcoded for now
+    password: Inf3rn0st0n3@     # Hardcoded for now
+    driver-class-name: org.mariadb.jdbc.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+        format_sql: true
+    
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+logging:
+  level:
+    com.strayrescue: DEBUG
+    org.springframework.security: DEBUG
+
+app:
+  cors:
+    allowed-origins: "http://localhost:3000,http://127.0.0.1:3000"
+
+# Comment out AWS and JWT for now
+# aws:
+#   region: ${AWS_REGION}
+#   s3:
+#     bucket: ${AWS_S3_BUCKET}
+#   credentials:
+#     access-key: ${AWS_ACCESS_KEY}
+#     secret-key: ${AWS_SECRET_KEY}
+
+# jwt:
+#   secret: ${JWT_SECRET}
+#   expiration: 86400000
