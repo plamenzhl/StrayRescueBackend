@@ -40,14 +40,13 @@ public class ImageUploadService {
     @Value("${aws.s3.bucket-name}")
     private String bucketName;
     
-    @Value("${aws.region}")
+    @Value("${aws.s3.region:eu-north-1}")
     private String region;
     
-    // Remove hardcoded credentials - use environment variables or IAM roles
-    @Value("${aws.credentials.access-key-id:}")
+    @Value("${aws.access-key-id:}")
     private String accessKeyId;
     
-    @Value("${aws.credentials.secret-access-key:}")
+    @Value("${aws.secret-access-key:}")
     private String secretAccessKey;
 
     // Image size configurations
@@ -67,7 +66,6 @@ public class ImageUploadService {
                     .credentialsProvider(StaticCredentialsProvider.create(awsCreds))
                     .build();
         } else {
-            // Use default credentials provider chain (recommended for production)
             return S3Client.builder()
                     .region(Region.of(region))
                     .credentialsProvider(DefaultCredentialsProvider.create())
